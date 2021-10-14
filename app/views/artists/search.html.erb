@@ -1,0 +1,18 @@
+<p> Vista de la respuesta del form de artista </p>
+
+<% if @searched_artist_bd.any? %>
+
+    <% @searched_artist_bd.each do |artist|%>
+
+        <p><%= link_to artist.name, artist_path(artist)  %></p>
+    <% p artist %>
+        <p><%= '**************************************' %></p>
+
+    <% end %>
+
+<% else %>
+
+    <p> La búsqueda no tuvo suerte o está mal escrita</p>
+    
+<% end %>
+

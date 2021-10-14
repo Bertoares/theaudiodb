@@ -1,0 +1,29 @@
+<br>
+
+
+<p> <%= @user.name %> </p>
+<p> <%= @user.nickname %> </p>
+<p> <%= @user.password %> </p>
+
+<br>
+
+    <!-- Formulario dentro del usuario ???????? -->
+<%= form_for @user, url: user_search_path(@user), method: :post do |f| %>
+
+    <p><%= label_tag "Indica un artista:" %>
+    <%= text_field_tag 'search', nil, placeholder: 'Escribe un artista...' %></p>
+
+<!-- Aqui sirve para llevarme un dato, sin que el usuario lo sepa o lo indique -->
+    <%= f.hidden_field :id %>
+
+    <p class="btn-search-artist" > <%= f.submit "Buscar artista" %> </p>
+
+<% end %>
+
+
+<br>
+<%= render "favorites_of_user", favorites: @favorite_artists, title: 'ARTISTS' %>
+<br><br>
+<%= render "favorites_of_user", favorites: @favorite_albums, title: 'ALBUMS' %>
+<br><br>
+<%= render "favorites_of_user", favorites: @favorite_tracks, title: 'TRACKS' %>
