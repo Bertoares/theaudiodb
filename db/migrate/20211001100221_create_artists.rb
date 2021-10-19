@@ -11,8 +11,8 @@ class CreateArtists < ActiveRecord::Migration[6.1]
       t.string :facebook
       t.string :twitter
       t.string :country
-      t.string :bio_en
-      t.string :bio_esp
+      t.text :bio_en
+      t.text :bio_esp
       t.string :thumb
 
       t.timestamps
