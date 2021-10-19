@@ -1,6 +1,14 @@
 <br>
 <br>
-<br>
 
 <p> <%= @artist.name %> </p>
 <p> <%= @artist.year %> </p>
+<p> <%= @artist.genre %> </p>
+<p> <%= @artist.website %> </p>
+<p> <%= @artist.facebook %> </p>
+<p> <%= @artist.twitter %> </p>
+<p> <%= @artist.country %> </p>
+<p> <%= @artist.bio_en %> </p>
+<p> <%= @artist.bio_esp %> </p>
+
+<%= image_tag(@artist.thumb, :alt => @artist.name + " picture") %>
