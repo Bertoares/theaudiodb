@@ -15,6 +15,7 @@ module Artists
             artists = artists.where('name like ?', "%#{@name}%") if @name
 
             artists
+            
         end
     end
 end

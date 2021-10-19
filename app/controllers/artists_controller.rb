@@ -2,15 +2,8 @@ class ArtistsController < ApplicationController
 
     # MÉTODOS CRUD ENTERO    index, show
 
-    # muestra la lista
-    def index
-        @artists = Artist.all 
-    end
-
     # muestra el detalle del objeto, en este caso artista
     def show
-        p '**************************'
-        p params
         @artist = Artist.find(params[:id])
     end
 
@@ -21,7 +14,9 @@ class ArtistsController < ApplicationController
         name_artist = params[:search]
 
        # @searched_artist_bd = ::Artists::Search.new(name: name_artist).execute
-        @searched_artist_bd = ::Artists::SearchApi.new(name: name_artist).execute
+       # results_api = ::Artists::SearchApi.new(name: name_artist).execute
+
+        @searched_artist_bd = ::Artists::SearchUseCase.new(name: name_artist).execute
   
 
         # hacer servicio de busqueda de artist a la api

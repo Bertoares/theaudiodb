@@ -5,7 +5,7 @@ Rails.application.routes.draw do
   root to: 'login#index' # usa el controlador login, con el método index
   
   
-  resources :artists, only: [:show]
+  resources :artists, only: [:show, :create]
 
 
   resources :users do

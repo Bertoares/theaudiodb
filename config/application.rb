@@ -23,6 +23,7 @@ module Theaudiodb
     #config.autoload_paths += Dir[Rails.root.join('app', 'services', '*')]
     #config.autoload_paths += Dir[Rails.root.join('app', 'use_cases', '*')]
     config.autoload_paths += %W(#{config.root}/services)
+    config.autoload_paths += %W(#{config.root}/use_cases)
 
   end
 end

@@ -1,6 +1,6 @@
 <p> Vista de la respuesta del form de artista </p>
 
-<% if @searched_artist_bd.any? %>
+<% if @searched_artist_bd %>
 
     <% @searched_artist_bd.each do |artist|%>
 
@@ -12,7 +12,7 @@
 
 <% else %>
 
-    <p> La búsqueda no tuvo suerte o está mal escrita</p>
+    <p> La búsqueda no tuvo suerte o está mal escrita </p>
     
 <% end %>
 
