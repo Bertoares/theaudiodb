@@ -8,8 +8,8 @@ class CreateAlbums < ActiveRecord::Migration[6.1]
       t.string :name
       t.integer :year
       t.string :genre
-      t.string :des_en
-      t.string :des_esp 
+      t.text :des_en
+      t.text :des_esp 
 
       t.timestamps
     end

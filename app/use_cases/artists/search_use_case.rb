@@ -19,13 +19,16 @@ module Artists
 
                 if results_api
 
-                    @searched_artist_bd = ::Artists::Create.new(results_api: results_api).execute
+                    ::Artists::Create.new(results_api: results_api).execute
 
+        # realizo de nuevo la búsqueda para devolver, aunque sea 1, una LISTA y poder iterar el bucle del search
+                    @searched_artist_bd = ::Artists::Search.new(name: @name).execute
                 end
                     
             end
 
-            @searched_artist_bd 
+            @searched_artist_bd
+
         end
 
     end

@@ -22,10 +22,14 @@ module Artists
                 bio_esp = value['artists'][0]['strBiographyES']
                 thumb = value['artists'][0]['strArtistThumb']
 
+
+                @artist = Artist.new(api_id: api_id, name: name, year: year, genre: genre, website: website, 
+                    facebook: facebook, twitter: twitter, country: country, bio_en: bio_en, bio_esp: bio_esp, thumb: thumb)
+
             end
 
-            @artist = Artist.new(api_id: api_id, name: name, year: year, genre: genre, website: website, 
-                facebook: facebook, twitter: twitter, country: country, bio_en: bio_en, bio_esp: bio_esp, thumb: thumb)
+            # @artist = Artist.new(api_id: api_id, name: name, year: year, genre: genre, website: website, 
+            #     facebook: facebook, twitter: twitter, country: country, bio_en: bio_en, bio_esp: bio_esp, thumb: thumb)
 
             @artist.save
 

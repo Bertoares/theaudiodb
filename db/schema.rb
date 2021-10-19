@@ -18,8 +18,8 @@ ActiveRecord::Schema.define(version: 2021_10_01_114820) do
     t.string "name"
     t.integer "year"
     t.string "genre"
-    t.string "des_en"
-    t.string "des_esp"
+    t.text "des_en"
+    t.text "des_esp"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["artist_id"], name: "index_albums_on_artist_id"
@@ -34,8 +34,8 @@ ActiveRecord::Schema.define(version: 2021_10_01_114820) do
     t.string "facebook"
     t.string "twitter"
     t.string "country"
-    t.string "bio_en"
-    t.string "bio_esp"
+    t.text "bio_en"
+    t.text "bio_esp"
     t.string "thumb"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
