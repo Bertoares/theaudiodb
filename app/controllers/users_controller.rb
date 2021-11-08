@@ -2,8 +2,6 @@ class UsersController < ApplicationController
 
     def index
         
-            # recogemos todos los artistas, y buscamos el que se llame Bon Jobi
-        @artists = Artist.where(name: 'Bon Jobi')
     end
 
     def show

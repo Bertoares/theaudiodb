@@ -1,9 +1,11 @@
 <br>
 <br>
+<%= link_to 'Buscar albums de ' + @artist.name, albums_path, class: "" %>
 
-<p> <%= @artist.name %> </p>
+<p> <%= @artist.api_id %> </p>
+<h3> <%= @artist.name %> </h3>
 <p> <%= @artist.year %> </p>
-<p> <%= @artist.genre %> </p>
+<p> <%= @artist.style %> </p>
 <p> <%= @artist.website %> </p>
 <p> <%= @artist.facebook %> </p>
 <p> <%= @artist.twitter %> </p>
@@ -11,4 +13,6 @@
 <p> <%= @artist.bio_en %> </p>
 <p> <%= @artist.bio_esp %> </p>
 
-<%= image_tag(@artist.thumb, :alt => @artist.name + " picture") %>
+<% if @artist.thumb? %>
+    <%= image_tag(@artist.thumb, :alt => @artist.name + " picture") %>
+<% end %>

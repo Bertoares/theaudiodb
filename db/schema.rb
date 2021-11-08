@@ -20,6 +20,7 @@ ActiveRecord::Schema.define(version: 2021_10_01_114820) do
     t.string "genre"
     t.text "des_en"
     t.text "des_esp"
+    t.string "thumb"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["artist_id"], name: "index_albums_on_artist_id"
@@ -29,7 +30,7 @@ ActiveRecord::Schema.define(version: 2021_10_01_114820) do
     t.integer "api_id"
     t.string "name"
     t.integer "year"
-    t.string "genre"
+    t.string "style"
     t.string "website"
     t.string "facebook"
     t.string "twitter"

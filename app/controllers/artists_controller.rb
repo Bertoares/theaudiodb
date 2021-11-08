@@ -16,7 +16,7 @@ class ArtistsController < ApplicationController
        # @searched_artist_bd = ::Artists::Search.new(name: name_artist).execute
        # results_api = ::Artists::SearchApi.new(name: name_artist).execute
 
-        @searched_artist_bd = ::Artists::SearchUseCase.new(name: name_artist).execute
+        @searched_artists = ::Artists::SearchUseCase.new(name: name_artist).execute
   
 
         # hacer servicio de busqueda de artist a la api

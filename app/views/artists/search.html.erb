@@ -1,8 +1,8 @@
-<p> Vista de la respuesta del form de artista </p>
+<h3> THEAUDIODB ARTIST LIST </h3>
 
-<% if @searched_artist_bd.any? %>
+<% if @searched_artists.any? %>
 
-    <% @searched_artist_bd.each do |artist|%>
+    <% @searched_artists.each do |artist|%>
 
         <p><%= link_to artist.name, artist_path(artist)  %></p>
     <% p artist %>
