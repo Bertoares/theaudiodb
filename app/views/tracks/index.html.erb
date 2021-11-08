@@ -1,0 +1,19 @@
+<h3> <%= @album.name.upcase! %> TRACK LIST </h3>
+
+<% if @searched_tracks.any? %>
+
+    <% @searched_tracks.each do |track|%>
+
+        <% url = "https://www.youtube.com/results?search_query=" + @album.name.delete(' ') + "+" + track.name.delete(' ') %>
+
+        <p> <a href= <%=url%> target="_blank"><%= track.name %> </a> </p>
+
+        <p><%= '**************************************' %></p>
+
+    <% end %>
+
+<% else %>
+
+    <p> La búsqueda no tuvo suerte. </p>
+    
+<% end %>

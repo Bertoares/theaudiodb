@@ -1,23 +1,25 @@
 <!-- El _ al principio indica que es un partial
         el cual vamos a llamar varias veces, rellenandolo con distintos datos 
         params: favorites - lista de favorites -->
-
-<table border="1">
-<caption>FAVORITES <%= title %> </caption>
-  <thead>
-    <tr>
-      <th>Nombre</th>
-    </tr>
-  </thead>
-  <tbody>
-    <% favorites.each do |favorite| %>
+<div style="text-align:center;">
+  <table border="1" style="text-align:center; margin: 0 auto;">
+  <caption><div>FAVORITES</div> 
+    <div><%= title %></div> </caption>
+    <thead>
       <tr>
-        <td><%= favorite.name %></td>
-<!--       <td>
-          <%= link_to "Mostrar" %>
-        </td> -->
+        <th>Nombre</th>
       </tr>
-    <% end %>
-  </tbody>
+    </thead>
+    <tbody>
+      <% favorites.each do |favorite| %>
+        <tr>
+          <td><%= favorite.name %></td>
+  <!--       <td>
+            <%= link_to "Mostrar" %>
+          </td> -->
+        </tr>
+      <% end %>
+    </tbody>
   </table>
+  </div>
 
