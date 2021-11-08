@@ -1,6 +1,6 @@
 <br>
 <br>
-<%= link_to 'Buscar albums del artista', albums_path, class: "" %>
+<%= link_to 'Buscar albums de ' + @artist.name, albums_path, class: "" %>
 
 <p> <%= @artist.api_id %> </p>
 <h3> <%= @artist.name %> </h3>
@@ -13,4 +13,6 @@
 <p> <%= @artist.bio_en %> </p>
 <p> <%= @artist.bio_esp %> </p>
 
-<%= image_tag(@artist.thumb, :alt => @artist.name + " picture") %>
+<% if @artist.thumb? %>
+    <%= image_tag(@artist.thumb, :alt => @artist.name + " picture") %>
+<% end %>
