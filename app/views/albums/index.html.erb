@@ -1,17 +1,16 @@
-<h3> THEAUDIODB ALBUM LIST </h3>
+<h3> <%= @artist.name.upcase! %> ALBUM LIST </h3>
 
 <% if @searched_albums.any? %>
 
     <% @searched_albums.each do |album|%>
 
         <p><%= link_to album.name, album_path(album)  %></p>
-    <% p album %>
         <p><%= '**************************************' %></p>
 
     <% end %>
 
 <% else %>
 
-    <p> La búsqueda no tuvo suerte</p>
+    <p> La búsqueda no tuvo suerte. </p>
     
 <% end %>
