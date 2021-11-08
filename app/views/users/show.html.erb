@@ -4,8 +4,8 @@
 <p> <%= @user.name %> </p>
 <p> <%= @user.nickname %> </p>
 <p> <%= @user.password %> </p>
+<p> '************************************************************' </p>
 
-<br>
 
     <!-- Formulario dentro del usuario ???????? -->
 <%= form_for @user, url: user_search_path(@user), method: :post do |f| %>

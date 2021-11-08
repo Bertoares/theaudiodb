@@ -1,0 +1,13 @@
+<br>
+<br>
+
+
+<h3> <%= @album.name %> </h3>
+<p> <%= @album.year %> </p>
+<p> <%= @album.genre %> </p>
+<p> <%= @album.des_en %> </p>
+
+
+<% if @album.thumb? %>
+    <%= image_tag(@album.thumb, :alt => @album.name + " picture") %>
+<% end %>

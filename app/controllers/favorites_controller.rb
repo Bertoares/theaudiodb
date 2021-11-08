@@ -20,6 +20,8 @@ class FavoritesController < ApplicationController
     def favorite_params            
         # Requiere un favorito, que permite estos datos, SOLO funciona si vienen estos 3
             # param "es el objeto donde te vienen todos los parametros de la vista"
-        params.require(:favorite).permit(:user, :favoritable_id, :favoritable_type)
+        params.require(:favorite).permit(   :user, 
+                                            :favoritable_id, 
+                                            :favoritable_type)
     end
 end

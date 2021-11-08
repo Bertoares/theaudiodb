@@ -12,8 +12,8 @@ module Artists
                 
                 api_id = value['artists'][0]['idArtist']
                 name = value['artists'][0]['strArtist']
-                year = value['artists'][0]['intFormedYear']
-                genre = value['artists'][0]['strGenre']
+                year = value['artists'][0]['intBornYear']
+                style = value['artists'][0]['strStyle']
                 website = value['artists'][0]['strWebsite']
                 facebook = value['artists'][0]['strFacebook']
                 twitter = value['artists'][0]['strTwitter']
@@ -23,7 +23,7 @@ module Artists
                 thumb = value['artists'][0]['strArtistThumb']
 
 
-                @artist = Artist.new(api_id: api_id, name: name, year: year, genre: genre, website: website, 
+                @artist = Artist.new(api_id: api_id, name: name, year: year, style: style, website: website, 
                     facebook: facebook, twitter: twitter, country: country, bio_en: bio_en, bio_esp: bio_esp, thumb: thumb)
 
             end
@@ -31,7 +31,7 @@ module Artists
             # @artist = Artist.new(api_id: api_id, name: name, year: year, genre: genre, website: website, 
             #     facebook: facebook, twitter: twitter, country: country, bio_en: bio_en, bio_esp: bio_esp, thumb: thumb)
 
-            @artist.save
+            @artist.save!
 
             @artist
 
