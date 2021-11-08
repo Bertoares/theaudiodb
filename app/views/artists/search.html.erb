@@ -5,14 +5,13 @@
     <% @searched_artists.each do |artist|%>
 
         <p><%= link_to artist.name, artist_path(artist)  %></p>
-    <% p artist %>
         <p><%= '**************************************' %></p>
 
     <% end %>
 
 <% else %>
 
-    <p> La búsqueda no tuvo suerte o está mal escrita </p>
+    <p> La búsqueda no tuvo suerte o está mal escrita. </p>
     
 <% end %>
 

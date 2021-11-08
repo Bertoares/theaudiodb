@@ -1,6 +1,8 @@
 <br>
 <br>
 
+<%= link_to 'Canciones que pernecen a "' + @album.name + '"', album_tracks_path(album_id: @album.id), class: "" %>
+
 
 <h3> <%= @album.name %> </h3>
 <p> <%= @album.year %> </p>
