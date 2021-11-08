@@ -1,9 +1,11 @@
 <br>
 <br>
+<%= link_to 'Buscar albums del artista', albums_path, class: "" %>
 
-<p> <%= @artist.name %> </p>
+<p> <%= @artist.api_id %> </p>
+<h3> <%= @artist.name %> </h3>
 <p> <%= @artist.year %> </p>
-<p> <%= @artist.genre %> </p>
+<p> <%= @artist.style %> </p>
 <p> <%= @artist.website %> </p>
 <p> <%= @artist.facebook %> </p>
 <p> <%= @artist.twitter %> </p>

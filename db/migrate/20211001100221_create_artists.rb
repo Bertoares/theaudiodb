@@ -2,11 +2,11 @@ class CreateArtists < ActiveRecord::Migration[6.1]
   def change
     create_table :artists do |t|
       
-      t.integer :api_id
+      t.string :api_id
 
       t.string :name
       t.integer :year
-      t.string :genre
+      t.string :style
       t.string :website
       t.string :facebook
       t.string :twitter

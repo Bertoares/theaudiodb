@@ -5,7 +5,13 @@ Rails.application.routes.draw do
   root to: 'login#index' # usa el controlador login, con el método index
   
   
-  resources :artists, only: [:show, :create]
+  resources :artists, only: [:show, :create] do
+    member do
+      resources :albums, only: [:index, :show, :create] do
+        resources :tracks
+      end
+    end
+  end
 
 
   resources :users do
@@ -15,5 +21,7 @@ Rails.application.routes.draw do
     post "search", to: 'artists#search'
 
   end
+
+
 
 end
