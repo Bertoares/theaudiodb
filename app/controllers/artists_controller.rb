@@ -1,15 +1,8 @@
 class ArtistsController < ApplicationController
 
     # MÉTODOS CRUD ENTERO    index, show
-
-    # muestra el detalle del objeto, en este caso artista
-    def show
-        @artist = Artist.find(params[:id])
-    end
-
-    def search
-        # byebug
- 
+    def index
+        # @user_id = params[:user][:id]
                     # params: hash que siempre llega al controlador
         name_artist = params[:search]
 
@@ -23,5 +16,12 @@ class ArtistsController < ApplicationController
         #coger el resultado
         #nostrarlo en la vista de search_Artist
     end
+    
+    # muestra el detalle del objeto, en este caso artista
+    def show
+        @artist = Artist.find(params[:id])
+    end
+
+    
 
 end

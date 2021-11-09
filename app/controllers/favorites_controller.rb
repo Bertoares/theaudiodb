@@ -5,13 +5,13 @@ class FavoritesController < ApplicationController
     # Esto sirve para guardar un nuevo favorito
     def create
                             #    llamamos al método params
-        @favorite = Favorite.new(favorite_params)
+        @favorite = ::Favorites::Create.new(favorite_params: @favorite_params).execute
 
-        if @favorite.save
-            redirect_to [@favorite.favoritable], notice: 'Favorite created'
-        else
-            render :new
-        end
+        # if @favorite.save
+        #     redirect_to [@favorite.favoritable], notice: 'Favorite created'
+        # else
+        #     render :new
+        # end
 
     end
 

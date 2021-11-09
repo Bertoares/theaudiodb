@@ -1,14 +1,34 @@
 <br>
 <br>
-<%= link_to 'Buscar albums de ' + @artist.name, albums_path, class: "" %>
+<%= link_to 'Buscar albums de ' + @artist.name, artist_albums_path(artist_id: @artist.id), class: "" %>
 
 <p> <%= @artist.api_id %> </p>
 <h3> <%= @artist.name %> </h3>
 <p> <%= @artist.year %> </p>
 <p> <%= @artist.style %> </p>
-<p> <%= @artist.website %> </p>
-<p> <%= @artist.facebook %> </p>
-<p> <%= @artist.twitter %> </p>
+
+<% if @artist.website? %>
+    <% url = "https://" + @artist.website %>
+    <p> <a href= <%= url %> target="_blank"> Website </a> </p>
+<% else %>
+    <p> No tiene Website asociada. </p>  
+<% end %>
+
+<% if @artist.facebook? %>
+    <% url = "https://" + @artist.facebook %>
+    <p> <a href= <%= url %> target="_blank"> Facebook </a> </p>
+<% else %>
+    <p> No tiene Facebook asociado. </p>  
+<% end %>
+
+
+<% if @artist.twitter? %>
+    <% url = "https://" + @artist.twitter %>
+    <p> <a href= <%= url %> target="_blank"> Twitter </a> </p>
+<% else %>
+    <p> No tiene Twitter asociado. </p>  
+<% end %>
+
 <p> <%= @artist.country %> </p>
 <p> <%= @artist.bio_en %> </p>
 <p> <%= @artist.bio_esp %> </p>

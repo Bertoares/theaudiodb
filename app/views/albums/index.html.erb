@@ -4,7 +4,7 @@
 
     <% @searched_albums.each do |album|%>
 
-        <p><%= link_to album.name, album_path(album)  %></p>
+        <p><%= link_to album.name, artist_album_path(album, artist_id: @artist.id)  %></p>
         <p><%= '**************************************' %></p>
 
     <% end %>
