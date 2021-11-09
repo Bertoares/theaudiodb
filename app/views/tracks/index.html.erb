@@ -6,7 +6,7 @@
 
         <% url = "https://www.youtube.com/results?search_query=" + @album.name.delete(' ') + "+" + track.name.delete(' ') %>
 
-        <p> <a href= <%=url%> target="_blank"><%= track.name %> </a> </p>
+        <p> <a href= <%= url %> target="_blank"><%= track.name %> </a> </p>
 
         <p><%= '**************************************' %></p>
 

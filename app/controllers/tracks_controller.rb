@@ -1,10 +1,11 @@
 class TracksController < ApplicationController
 
    def index
-   
-   @album = Album.find(params[:id])
 
-   @searched_tracks = ::Tracks::SearchUseCase.new(album: @album).execute
+      @artist = Artist.find(params[:artist_id])
+      @album = Album.find(params[:album_id])
+
+      @searched_tracks = ::Tracks::SearchUseCase.new(album: @album).execute
 
    end
 
