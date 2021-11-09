@@ -5,20 +5,16 @@ Rails.application.routes.draw do
   root to: 'login#index' # usa el controlador login, con el método index
   
   
-  resources :artists, only: [:show, :create] do
-    member do
-      resources :albums, only: [:index, :show, :create] do
-        resources :tracks, only: [:index, :show, :create]
+  resources :artists, only: [:index, :show] do
+      resources :albums, only: [:index, :show] do
+        resources :tracks, only: [:index, :show]
       end
-    end
   end
 
 
   resources :users do
                         # crea unicamente las url que nos interesan del CRUD
-    resources :favorites, only: [:index, :create, :destroy]
-
-    post "search", to: 'artists#search'
+    resources :favorites, only: [:create, :destroy]
 
   end
 
