@@ -10,10 +10,10 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_10_01_114820) do
+ActiveRecord::Schema.define(version: 2021_11_09_140708) do
 
   create_table "albums", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
-    t.integer "api_id"
+    t.string "api_id"
     t.bigint "artist_id", null: false
     t.string "name"
     t.integer "year"
@@ -27,7 +27,7 @@ ActiveRecord::Schema.define(version: 2021_10_01_114820) do
   end
 
   create_table "artists", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
-    t.integer "api_id"
+    t.string "api_id"
     t.string "name"
     t.integer "year"
     t.string "style"
@@ -52,7 +52,7 @@ ActiveRecord::Schema.define(version: 2021_10_01_114820) do
   end
 
   create_table "tracks", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
-    t.integer "api_id"
+    t.string "api_id"
     t.bigint "album_id", null: false
     t.string "name"
     t.string "genre"
@@ -64,10 +64,15 @@ ActiveRecord::Schema.define(version: 2021_10_01_114820) do
 
   create_table "users", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
     t.string "name"
-    t.string "nickname"
-    t.string "password"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.string "email", default: "", null: false
+    t.string "encrypted_password", default: "", null: false
+    t.string "reset_password_token"
+    t.datetime "reset_password_sent_at"
+    t.datetime "remember_created_at"
+    t.index ["email"], name: "index_users_on_email", unique: true
+    t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
   add_foreign_key "albums", "artists"
