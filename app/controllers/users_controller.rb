@@ -5,8 +5,12 @@ class UsersController < ApplicationController
     end
 
     def show
-        
-        @user = User.find(params[:id])
+
+        begin 
+            @user = User.find(params[:id])
+        rescue => exception
+            @user = current_user
+        end
 
     # llamamos al servicio que estar en la carpeta User, y le pasamos una variable con el valor de @user
         @favorite_artists = ::Users::GetFavoriteArtists.new(user: @user).execute
