@@ -7,11 +7,8 @@ module Favorites
         end
 
         def execute
-
-
+            Favorite.create!(@favorite_params)
         end
-
-        
 
     end
 end
