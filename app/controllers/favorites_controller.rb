@@ -4,11 +4,24 @@ class FavoritesController < ApplicationController
 
     # Esto sirve para guardar un nuevo favorito
     def create
-        
-        ::Favorites::Create.new(object: @object, current_user: current_user).execute
+
+        @object_id = params[:object_id]
+        @object_class = params[:object_class]
+        @current_user = params[:user_id]
+
+        ::Favorites::CreateUseCase.new(object_id: @object_id, object_class: @object_class, current_user: @current_user).execute
 
     end
 
+    def destroy
+
+        @object_id = params[:object_id]
+        @object_class = params[:object_class]
+        @current_user = params[:user_id]
+
+        ::Favorites::DestroyUseCase.new(object_id: @object_id, object_class: @object_class, current_user: @current_user).execute
+
+    end
 
 
 
