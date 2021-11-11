@@ -1,3 +1,5 @@
+<p><%= link_to "Volver al album '" + @album.name + "'", artist_album_path(id: @album.id) %></p>
+
 <h3> <%= @album.name.upcase! %> TRACK LIST </h3>
 
 <% if @searched_tracks.any? %>
@@ -15,5 +17,6 @@
 <% else %>
 
     <p> La búsqueda no tuvo suerte. </p>
+    <p><%= link_to "Volver", album_path(@album.id) %></p>
     
 <% end %>

@@ -1,6 +1,4 @@
-<br>
-<br>
-
+<button><%= link_to "Volver a lista de albumes", artist_albums_path %></button>
 <%= link_to 'Canciones que pernecen a "' + @album.name + '"', artist_album_tracks_path(album_id: @album.id), class: "" %>
 
 
