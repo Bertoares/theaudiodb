@@ -8,7 +8,13 @@
 
         <% url = "https://www.youtube.com/results?search_query=" + @album.name.delete(' ') + "+" + track.name.delete(' ') %>
 
-        <p> <a href= <%= url %> target="_blank"><%= track.name %> </a> </p>
+        <p> 
+            <a href= <%= url %> target="_blank"><%= track.name %> </a>
+        
+            <button><%= link_to "Favorite", user_favorites_path(user_id: current_user, object_id: track.id, object_class: track.class), method: :post %></button> 
+            <button><%= link_to "DesFavorite", user_favorite_path(id: track.id, user_id: current_user, object_id: track.id, object_class: track.class), method: "DELETE" %></button>
+        </p>
+
 
         <p><%= '**************************************' %></p>
 
