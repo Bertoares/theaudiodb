@@ -1,0 +1,10 @@
+
+<% if ::Favorites::Find.new(object_id: object.id, object_class: object.class, current_user: current_user).execute %>
+
+    <button><%= link_to "DesFavorite", user_favorite_path(id: object.id, user_id: current_user, object_id: object.id, object_class: object.class), method: "DELETE" %></button>
+
+<% else %>
+
+    <button><%= link_to "Favorite", user_favorites_path(user_id: current_user, object_id: object.id, object_class: object.class), method: :post %></button> 
+
+<% end %>

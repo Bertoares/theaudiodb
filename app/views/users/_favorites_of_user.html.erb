@@ -1,21 +1,34 @@
 <!-- El _ al principio indica que es un partial
         el cual vamos a llamar varias veces, rellenandolo con distintos datos 
         params: favorites - lista de favorites -->
-<div style="text-align:center;">
-  <table border="1" style="text-align:center; margin: 0 auto;">
-  <caption><div>FAVORITES</div> 
-    <div><%= title %></div> </caption>
+
+  <caption><div class="caption-favorites-user">FAVORITES <%= title %></div> </caption><div>
+  <table class="table-favorites-user">
     <thead>
       <tr>
-        <th>Nombre</th>
+        <th class="th-favorites-user">Nombre</th>
       </tr>
     </thead>
     <tbody>
+
       <% favorites.each do |favorite| %>
-        <tr>
-          <td><%= favorite.name %></td>
-        </tr>
+      
+        <% if favorite.class == Artist %>
+          <tr>
+            <td class="td-favorites-user"> <%= link_to favorite.name, artist_path(artist_id: favorite.id) %> </td>
+          </tr>
+        <% elsif favorite.class == Album %>
+          <tr>
+            <td class="td-favorites-user"> <%= link_to favorite.name + " - " + favorite.artist.name.to_s, artist_album_path(favorite, artist_id: favorite.artist.id) %> </td>
+          </tr>
+        <% elsif favorite.class == Track %>
+          <tr>
+            <td class="td-favorites-user"> <%= link_to favorite.name + " - " + favorite.album.artist.name.to_s, artist_album_tracks_path(artist_id: favorite.album.artist.id, album_id: favorite.album.id) %> </td>
+          </tr>
+        <% end %>
+
       <% end %>
+
     </tbody>
   </table>
   </div>

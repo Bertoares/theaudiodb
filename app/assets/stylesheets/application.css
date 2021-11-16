@@ -37,3 +37,27 @@ img{
 body{
     padding: 50px;
 }
+
+.caption-favorites-user{
+    text-align: center;
+    font-weight: bold;
+}
+
+.table-favorites-user{
+    margin: auto;
+    width: 30%;
+} 
+
+.th-favorites-user{
+    border: 3px solid black;
+    text-align: center;
+}
+
+.td-favorites-user{
+    text-align: center;
+}
+
+.field{
+    font-size: large;
+    font-weight: bold;
+}

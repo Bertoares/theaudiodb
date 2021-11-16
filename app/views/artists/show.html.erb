@@ -1,8 +1,13 @@
 <button><%= link_to "Volver a lista de artistas", artists_path %></button>
-<%= link_to 'Buscar albums de ' + @artist.name, artist_albums_path(artist_id: @artist.id), class: "" %>
+<%= link_to 'Buscar albums de ' + @artist.name, artist_albums_path(artist_id: @artist.id) %>
 
-<button><%= link_to "Favorite", user_favorites_path(user_id: current_user, object_id: @artist.id, object_class: @artist.class), method: :post %></button>
-<button><%= link_to "DesFavorite", user_favorite_path(user_id: current_user, object_id: @artist.id, object_class: @artist.class), method: "DELETE" %></button>
+<p> 
+
+    <div id= "button-favoritable-<%= @artist.id.to_s %>">
+        <%= render "favorites/buttons_favorite", object: @artist, user: current_user %>
+    </div>
+        
+</p>
 
 <h3> <%= @artist.name %> </h3>
 <p> <%= @artist.year %> </p>
