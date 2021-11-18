@@ -1,0 +1,1 @@
+$('#button-favoritable-<%= @object_found.id.to_s %>').html("<%= escape_javascript render 'favorites/buttons_favorite', object: @object_found, user: @current_user %>");

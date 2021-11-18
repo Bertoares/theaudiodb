@@ -1,8 +1,20 @@
-<br>
-<br>
-<%= link_to 'Buscar albums de ' + @artist.name, artist_albums_path(artist_id: @artist.id), class: "" %>
+<div class="ccc">
+    
+    <div class="bbb">
+        <button class="button-all"><%= link_to "Volver a lista de artistas", artists_path %></button>
+    </div>
 
-<p> <%= @artist.api_id %> </p>
+    <div class="aaa"> 
+
+            <div id= "button-favoritable-<%= @artist.id.to_s %>">
+                <%= render "favorites/buttons_favorite", object: @artist, user: current_user %>
+            </div>
+                
+    </div>
+
+</div>
+
+
 <h3> <%= @artist.name %> </h3>
 <p> <%= @artist.year %> </p>
 <p> <%= @artist.style %> </p>
@@ -35,4 +47,20 @@
 
 <% if @artist.thumb? %>
     <%= image_tag(@artist.thumb, :alt => @artist.name + " picture") %>
+<% end %>
+
+<% if @searched_albums.any? %>
+
+    <% @searched_albums.each do |album|%>
+
+        <p><%= link_to album.name, artist_album_path(album, artist_id: @artist.id)  %></p>
+        <p><%= '**************************************' %></p>
+
+    <% end %>
+
+<% else %>
+
+    <p> La búsqueda no tuvo suerte. </p>
+    <p><%= link_to "Volver a" + @artist.name, artist_path(@artist.id) %></p>
+    
 <% end %>

@@ -20,6 +20,8 @@ class ArtistsController < ApplicationController
     # muestra el detalle del objeto, en este caso artista
     def show
         @artist = Artist.find(params[:id])
+        
+        @searched_albums = ::Albums::SearchUseCase.new(artist: @artist).execute
     end
 
     

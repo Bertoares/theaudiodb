@@ -1,32 +1,27 @@
-<br>
-
-<p> '************************************************************' </p>
-
-<h3> Bienvenid@ <%= @user.name %> </h3>
-<%= @user.email %>
-
-<br>
-<br>
-<br>
-<br>
 
     <!-- Formulario dentro del usuario ???????? -->
-<%= form_with url: artists_path, method: :get do |f| %>
+<div class="formulario-user">
 
-    <p><%= label_tag "Indica un artista:" %>
-    <%= text_field_tag 'search', nil, placeholder: 'Escribe un artista...' %></p>
+    <div class="search-artist">
+        <%= form_with url: artists_path, method: :get do |f| %>
 
-<!-- Aqui sirve para llevarme un dato, sin que el usuario lo sepa o lo indique -->
-    <%= f.hidden_field :id %>
+            <p><%= label_tag "Indica un artista:" %>
+            <%= text_field_tag 'search', nil, placeholder: 'Escribe un artista...', class: "text-field-all" %></p>
 
-    <p class="btn-search-artist" > <%= f.submit "Buscar artista" %> </p>
+        <!-- Aqui sirve para llevarme un dato, sin que el usuario lo sepa o lo indique -->
+            <%= f.hidden_field :id %>
 
-<% end %>
+            <p class="btn-search-artist" > <%= f.submit "Buscar artista", class: "button-all" %> </p>
 
+        <% end %>
+    </div>
 
-<br>
-<%= render "favorites_of_user", favorites: @favorite_artists, title: 'ARTISTS' %>
-<br><br>
-<%= render "favorites_of_user", favorites: @favorite_albums, title: 'ALBUMS' %>
-<br><br>
-<%= render "favorites_of_user", favorites: @favorite_tracks, title: 'TRACKS' %>
+    <div class="table-fav-user">
+        <%= render "favorites_of_user", favorites: @favorite_artists, title: 'ARTISTS' %>
+        <br><br>
+        <%= render "favorites_of_user", favorites: @favorite_albums, title: 'ALBUMS' %>
+        <br><br>
+        <%= render "favorites_of_user", favorites: @favorite_tracks, title: 'TRACKS' %>
+    </div>
+
+</div>

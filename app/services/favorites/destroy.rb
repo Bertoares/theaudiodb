@@ -1,5 +1,5 @@
 module Favorites
-    class Create
+    class Destroy
 
         def initialize(object_id:, object_class:, current_user:)
 
@@ -9,8 +9,8 @@ module Favorites
         end
 
         def execute
-            new_favorite = Favorite.new(favoritable_id: @object_id, favoritable_type: @object_class, user_id: @current_user)
-            new_favorite.save!
+            destroy_favorite = Favorite.find_by(favoritable_id: @object_id, favoritable_type: @object_class,user_id: @current_user)
+            destroy_favorite.destroy
         end
 
     end
