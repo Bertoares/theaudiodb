@@ -1,5 +1,5 @@
 module Favorites
-    class Create
+    class Find 
 
         def initialize(object_id:, object_class:, current_user:)
 
@@ -9,9 +9,11 @@ module Favorites
         end
 
         def execute
-            new_favorite = Favorite.new(favoritable_id: @object_id, favoritable_type: @object_class, user_id: @current_user)
-            new_favorite.save!
+                # solo hace esto si @artist_id no es nil
+            favorite = Favorite.find_by(favoritable_id: @object_id, favoritable_type: @object_class, user_id: @current_user)
+            
+            favorite
+            
         end
-
     end
 end

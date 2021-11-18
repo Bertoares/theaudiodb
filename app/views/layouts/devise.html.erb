@@ -7,17 +7,27 @@
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
-
+ 
     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
-    
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-    
+
   </head>
+  <body>
+  
+      <header class="masthead mb-auto cabecera-nav">
+        <div class="inner">
 
-<body>
+          <nav class="nav nav-masthead justify-content-center">
+            <div class="padrealigncenter" >
 
-    <%= render 'layouts/navigation' %>
+              <h1 class="title">THEAUDIODB</h1>
+              <img src="/logo_3d.png">
+
+            </div>
+          </nav>
+
+        </div>
+      </header>
 
     <%= yield %>
 

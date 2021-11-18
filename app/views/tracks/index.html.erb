@@ -1,12 +1,22 @@
+<p><%= link_to 'Volver al album "' + @album.name + '"', artist_album_path(id: @album.id) %></p>
+
 <h3> <%= @album.name.upcase! %> TRACK LIST </h3>
 
 <% if @searched_tracks.any? %>
 
-    <% @searched_tracks.each do |track|%>
+    <% @searched_tracks.each do |track| %>
 
         <% url = "https://www.youtube.com/results?search_query=" + @album.name.delete(' ') + "+" + track.name.delete(' ') %>
 
-        <p> <a href= <%= url %> target="_blank"><%= track.name %> </a> </p>
+        <p> 
+            <a href= <%= url %> target="_blank"><%= track.name %> </a>
+
+            <div id= "button-favoritable-<%= track.id.to_s %>">
+                <%= render "favorites/buttons_favorite", object: track, user: current_user %>
+            </div>
+        
+        </p>
+
 
         <p><%= '**************************************' %></p>
 
@@ -15,5 +25,6 @@
 <% else %>
 
     <p> La búsqueda no tuvo suerte. </p>
+    <p><%= link_to "Volver", album_path(@album.id) %></p>
     
 <% end %>

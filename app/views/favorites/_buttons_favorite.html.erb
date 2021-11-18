@@ -1,0 +1,10 @@
+
+<% if ::Favorites::Find.new(object_id: object.id, object_class: object.class, current_user: current_user).execute %>
+
+    <%= link_to image_tag("/favorito.png", border: 0, size: "25x25", alt: "Quitar favorito"), user_favorite_path(id: object.id, user_id: current_user, object_id: object.id, object_class: object.class), method: "DELETE", remote: true %>
+
+<% else %>
+
+    <%= link_to image_tag("/desfavorito.png", border: 0, size: "31x31", alt: "Añadir favorito"), user_favorites_path(user_id: current_user, object_id: object.id, object_class: object.class), method: :post, remote: true %>
+
+<% end %>
