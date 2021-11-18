@@ -1,6 +1,6 @@
 class FavoritesController < ApplicationController
 
-    # Controla los datos del modelo
+    # Controla los datos del modelop
 
     # Esto sirve para guardar un nuevo favorito
     def create
@@ -11,7 +11,15 @@ class FavoritesController < ApplicationController
 
         ::Favorites::CreateUseCase.new(object_id: @object_id, object_class: @object_class, current_user: @current_user).execute
 
+        @object_found = get_object(object_class: @object_class, object_id: @object_id)
+        
+        respond_to do |format|
+            format.js { render template: 'favorites/change_favorite' }
+        end
+
     end
+
+
 
     def destroy
 
@@ -21,18 +29,24 @@ class FavoritesController < ApplicationController
 
         ::Favorites::DestroyUseCase.new(object_id: @object_id, object_class: @object_class, current_user: @current_user).execute
 
+        @object_found = get_object(object_class: @object_class, object_id: @object_id)
+        
+        respond_to do |format|
+            format.js { render template: 'favorites/change_favorite' }
+        end
+
     end
 
 
 
+    
 
     private
 
-    # def favorite_params            
-    #     # Requiere un favorito, que permite estos datos, SOLO funciona si vienen estos 3
-    #         # param "es el objeto donde te vienen todos los parametros de la vista"
-    #     params.require(:favorite).permit(   :user, 
-    #                                         :favoritable_id, 
-    #                                         :favoritable_type)
-    # end
+    def get_object(object_class:, object_id:)
+        object = object_class.constantize
+        object.find(object_id.to_i)
+
+    end
+
 end

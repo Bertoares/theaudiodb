@@ -1,18 +1,20 @@
-<h3> THEAUDIODB ARTIST LIST </h3>
 
-<% if @searched_artists.any? %>
+<div class="padrealigncenter">
+    <h3> THEAUDIODB ARTIST LIST </h3>
 
-    <% @searched_artists.each do |artist|%>
+    <% if @searched_artists.any? %>
 
-        <p><%= link_to artist.name, artist_path(artist)  %></p>
-        <p><%= '**************************************' %></p>
+        <% @searched_artists.each do |artist|%>
 
+            <p><%= link_to artist.name, artist_path(artist), class: "a-without-line" %></p>
+            <p><%= '**************************************' %></p>
+
+        <% end %>
+
+    <% else %>
+
+        <p> La búsqueda no tuvo suerte o está mal escrita. </p>
+        <p><%= link_to "Volver", user_path(current_user) %></p>
+        
     <% end %>
-
-<% else %>
-
-    <p> La búsqueda no tuvo suerte o está mal escrita. </p>
-    <p><%= link_to "Volver", user_path(current_user) %></p>
-    
-<% end %>
-
+</div>

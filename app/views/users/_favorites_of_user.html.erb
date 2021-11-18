@@ -2,11 +2,11 @@
         el cual vamos a llamar varias veces, rellenandolo con distintos datos 
         params: favorites - lista de favorites -->
 
-  <caption><div class="caption-favorites-user">FAVORITES <%= title %></div> </caption><div>
+  <div>
   <table class="table-favorites-user">
     <thead>
       <tr>
-        <th class="th-favorites-user">Nombre</th>
+        <th class="th-favorites-user">FAVORITES <%= title %></th>
       </tr>
     </thead>
     <tbody>
@@ -15,15 +15,15 @@
       
         <% if favorite.class == Artist %>
           <tr>
-            <td class="td-favorites-user"> <%= link_to favorite.name, artist_path(artist_id: favorite.id) %> </td>
+            <td class="td-favorites-user"> <%= link_to favorite.name, artist_path(id: favorite.id), class: "a-without-line"  %> </td>
           </tr>
         <% elsif favorite.class == Album %>
           <tr>
-            <td class="td-favorites-user"> <%= link_to favorite.name + " - " + favorite.artist.name.to_s, artist_album_path(favorite, artist_id: favorite.artist.id) %> </td>
+            <td class="td-favorites-user"> <%= link_to favorite.name + " - " + favorite.artist.name.to_s, artist_album_path(id: favorite.id, artist_id: favorite.artist.id), class: "a-without-line" %> </td>
           </tr>
         <% elsif favorite.class == Track %>
           <tr>
-            <td class="td-favorites-user"> <%= link_to favorite.name + " - " + favorite.album.artist.name.to_s, artist_album_tracks_path(artist_id: favorite.album.artist.id, album_id: favorite.album.id) %> </td>
+            <td class="td-favorites-user"> <%= link_to favorite.name + " - " + favorite.album.artist.name.to_s, artist_album_tracks_path(artist_id: favorite.album.artist.id, album_id: favorite.album.id, id: current_user), class: "a-without-line"  %> </td>
           </tr>
         <% end %>
 

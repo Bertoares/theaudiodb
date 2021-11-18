@@ -8,23 +8,23 @@
 
           <div class="field">
             <%= f.label :email%><br />
-            <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
+            <%= f.email_field :email, autofocus: true, autocomplete: "email", placeholder: "Email", class: "text-field-all" %>
           </div>
 
           <div class="field">
             <%= f.label :password %><br />
-            <%= f.password_field :password, autocomplete: "current-password" %>
+            <%= f.password_field :password, autocomplete: "current-password", placeholder: "Password", class: "text-field-all" %>
           </div>
 
           <% if devise_mapping.rememberable? %>
             <div class="field">
-              <%= f.check_box :remember_me %>
+              <%= f.check_box :remember_me, class: "checkbox-all" %>
               <%= f.label :remember_me %>
             </div>
           <% end %>
 
           <div class="actions">
-            <%= f.submit "Iniciar sesión" %>
+            <%= f.submit "Iniciar sesión", class: "button-all" %>
           </div>
 
         <% end %>
