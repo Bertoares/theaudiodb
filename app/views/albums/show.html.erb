@@ -1,20 +1,89 @@
-<button><%= link_to "Volver a lista de albumes", artist_albums_path %></button>
-<%= link_to 'Canciones que pernecen a "' + @album.name + '"', artist_album_tracks_path(album_id: @album.id) %>
+<div class="pad-25">
+    <button class="button-all"><%= link_to "Volver a " + @artist.name, artist_path(@artist.id) , class: "a-without-line-button" %></button>
+</div>
+    
+<div class="percetange_100 pad-25">
+    
+    <div class="percentage_50 left">
+        <div class="padre-div">
 
-<p> 
+            <div class="percentage_5"> 
 
-    <div id= "button-favoritable-<%= @album.id.to_s %>">
-        <%= render "favorites/buttons_favorite", object: @album, user: current_user %>
-    </div>
+                    <div id= "button-favoritable-<%= @album.id.to_s %>">
+                        <%= render "favorites/buttons_favorite", object: @album, user: current_user %>
+                    </div>
+                        
+            </div>
+
+
+            <div>
+                <h1> <%= @album.name %> </h1>
+
+                <div>
+                    Año:
+                    <% if @album.year? %>
+                    <%= @album.year %>
+                    <% else %>
+                        desconocido
+                    <% end %>
+                        - Estilo:
+                    <% if @album.genre? %>
+                    <%= @album.genre %>
+                    <% else %>
+                        desconocido
+                    <% end %>
+                
+                </div>
+            </div>
+        </div>
+
+        <div class="div-padre">
+
+            <div>
+                <% if @album.thumb? %>
+                    <%= image_tag(@album.thumb, alt: @album.name + " picture", size: "250x250") %>
+                <% else %>
+                    <%= image_tag("/not_found.png", alt: @album.name + " picture", size: "250x250") %>
+                <% end %>
+            </div>
+
+        </div>
+    
+        <% if @album.des_en? %>
+            <p><%= @album.des_en %></p>
+        <% else %>
+            <p>No hay descripción.</p>
+        <% end %>
         
-</p>
+    </div>
 
-<h3> <%= @album.name %> </h3>
-<p> <%= @album.year %> </p>
-<p> <%= @album.genre %> </p>
-<p> <%= @album.des_en %> </p>
+    <div class="percentage_50 right center">
 
+        <h3 class="title-list"><%= @album.name %> tracks</h3>
+        <% if @searched_tracks.any? %>
 
-<% if @album.thumb? %>
-    <%= image_tag(@album.thumb, :alt => @album.name + " picture") %>
-<% end %>
+            <% @searched_tracks.each do |track| %>
+
+                <% url = "https://www.youtube.com/results?search_query=" + @album.name.delete(' ') + "+" + track.name.delete(' ') %>
+
+                <p> 
+                    <div class="percentage_100 track-beauty">  
+                        <a href= <%= url %> target="_blank", class="a-without-line" > <%= track.name %> </a>
+
+                        <div id= "button-favoritable-<%= track.id.to_s %>" class="pad-left-25 ">
+                            <%= render "favorites/buttons_favorite", object: track, user: current_user %>
+                        </div>
+                    </div>
+                </p>
+
+            <% end %>
+
+        <% else %>
+
+            <p> No hemos encontrado las canciones. </p>
+    
+        <% end %>
+
+    <div>
+
+</div>

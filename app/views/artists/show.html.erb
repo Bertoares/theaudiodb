@@ -48,6 +48,8 @@
             <div>
                 <% if @artist.thumb? %>
                     <%= image_tag(@artist.thumb, alt: @artist.name + " picture", size: "150x150") %>
+                <% else %>
+                    <%= image_tag("/not_found.png", alt: @album.name + " picture", size: "150x150") %>
                 <% end %>
             </div>
             
@@ -97,8 +99,7 @@
 
         <% else %>
 
-            <p> La búsqueda no tuvo suerte. </p>
-            <p><%= link_to "Volver a" + @artist.name, artist_path(@artist.id), class: "a-without-line" %></p>
+            <p> No hemos encontrado los álbumes. </p>
             
         <% end %>
     <div>
