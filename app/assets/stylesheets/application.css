@@ -41,7 +41,6 @@ body{
     padding-left: 15px;
     padding-right: 15px;
     padding-bottom: 50px;
-    border-bottom: 5px solid black;
 } 
 
 html{
@@ -105,13 +104,36 @@ html{
 }
 
 
-
-.aaa{width: 5%;}
-.bbb{width: 15%;}
-.ccc{
+.percentage_100{
+    width: 100%;
+    display: flex;
+}
+.percentage_50{
+    width: 45%;
+}
+.percentage_5{
+    width: 5%;
+    padding-top: 25px;
+    
+}
+.percentage_15{width: 15%;}
+.padre-div{
+    margin-top: 20px;
     width: 100%;
     height: auto;
     display: flex;
+    border-bottom: 1px solid black;
+}
+
+.div-padre{
+    width: 100%;
+    display: flex;
+    margin-top: 25px;
+}
+
+.div-hijo{
+    margin-top: 10px;
+    margin-left: 25px;
 }
 
 
@@ -129,13 +151,13 @@ html{
     font-weight: bold;
 }
 
-.text-field-tag{
-    height: 25px;
-}
-
 .a-without-line-button{
     text-decoration: none;
     color: white;
+}
+
+.a-without-line-button:hover{
+    color: black;
 }
 
 
@@ -212,4 +234,18 @@ html{
 
 .left{
     float: left;
+}
+
+.center{
+    text-align: center;
+}
+
+.pad-25{
+    padding-left: 25px;
+    padding-right: 25px;
+}
+
+.title-list{
+    font-size: 25px;
+    text-decoration: underline;
 }

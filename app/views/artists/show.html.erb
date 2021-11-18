@@ -1,66 +1,106 @@
-<div class="ccc">
+<div class="pad-25">
+    <button class="button-all"><%= link_to "Volver al buscador", user_path(current_user), class: "a-without-line-button" %></button>
+</div>
     
-    <div class="bbb">
-        <button class="button-all"><%= link_to "Volver a lista de artistas", artists_path %></button>
-    </div>
+<div class="percetange_100 pad-25">
+    
+    <div class="percentage_50 left">
+        <div class="padre-div">
 
-    <div class="aaa"> 
+            <div class="percentage_5"> 
 
-            <div id= "button-favoritable-<%= @artist.id.to_s %>">
-                <%= render "favorites/buttons_favorite", object: @artist, user: current_user %>
+                    <div id= "button-favoritable-<%= @artist.id.to_s %>">
+                        <%= render "favorites/buttons_favorite", object: @artist, user: current_user %>
+                    </div>
+                        
             </div>
+
+
+            <div>
+                <h1> <%= @artist.name %> </h1>
+
+                <div>
+                    Año:
+                    <% if @artist.year? %>
+                    <%= @artist.year %>
+                    <% else %>
+                        desconocido
+                    <% end %>
+                        - Estilo:
+                    <% if @artist.style? %>
+                    <%= @artist.style %>
+                    <% else %>
+                        desconocido
+                    <% end %>
+                        - Origen:
+                    <% if @artist.country? %>
+                    <%= @artist.country %>
+                    <% else %>
+                        desconocido
+                    <% end %>
                 
+                </div>
+            </div>
+        </div>
+
+        <div class="div-padre">
+
+            <div>
+                <% if @artist.thumb? %>
+                    <%= image_tag(@artist.thumb, alt: @artist.name + " picture", size: "150x150") %>
+                <% end %>
+            </div>
+            
+            <div class="div-hijo">
+                <% if @artist.website? %>
+                    <% url = "https://" + @artist.website %>
+                    <p> <a href= <%= url %> target="_blank"> Website </a> </p>
+                <% else %>
+                    <p> No tiene Website asociada. </p>  
+                <% end %>
+
+                <% if @artist.facebook? %>
+                    <% url = "https://" + @artist.facebook %>
+                    <p> <a href= <%= url %> target="_blank"> Facebook </a> </p>
+                <% else %>
+                    <p> No tiene Facebook asociado. </p>  
+                <% end %>
+
+                <% if @artist.twitter? %>
+                    <% url = "https://" + @artist.twitter %>
+                    <p> <a href= <%= url %> target="_blank"> Twitter </a> </p>
+                <% else %>
+                    <p> No tiene Twitter asociado. </p>  
+                <% end %>
+            </div>
+
+        </div>
+    
+        <% if @artist.bio_en? %>
+            <p><%= @artist.bio_en %></p>
+        <% else %>
+            <p>No hay descripción.</p>
+        <% end %>
+        
     </div>
+
+    <div class="percentage_50 right center">
+
+        <h3 class="title-list"><%= @artist.name %> albums</h3>
+        <% if @searched_albums.any? %>
+
+            <% @searched_albums.each do |album|%>
+
+                <p><%= link_to album.name, artist_album_path(album, artist_id: @artist.id), class: "a-without-line" %></p>
+
+            <% end %>
+
+        <% else %>
+
+            <p> La búsqueda no tuvo suerte. </p>
+            <p><%= link_to "Volver a" + @artist.name, artist_path(@artist.id), class: "a-without-line" %></p>
+            
+        <% end %>
+    <div>
 
 </div>
-
-
-<h3> <%= @artist.name %> </h3>
-<p> <%= @artist.year %> </p>
-<p> <%= @artist.style %> </p>
-
-<% if @artist.website? %>
-    <% url = "https://" + @artist.website %>
-    <p> <a href= <%= url %> target="_blank"> Website </a> </p>
-<% else %>
-    <p> No tiene Website asociada. </p>  
-<% end %>
-
-<% if @artist.facebook? %>
-    <% url = "https://" + @artist.facebook %>
-    <p> <a href= <%= url %> target="_blank"> Facebook </a> </p>
-<% else %>
-    <p> No tiene Facebook asociado. </p>  
-<% end %>
-
-
-<% if @artist.twitter? %>
-    <% url = "https://" + @artist.twitter %>
-    <p> <a href= <%= url %> target="_blank"> Twitter </a> </p>
-<% else %>
-    <p> No tiene Twitter asociado. </p>  
-<% end %>
-
-<p> <%= @artist.country %> </p>
-<p> <%= @artist.bio_en %> </p>
-<p> <%= @artist.bio_esp %> </p>
-
-<% if @artist.thumb? %>
-    <%= image_tag(@artist.thumb, :alt => @artist.name + " picture") %>
-<% end %>
-
-<% if @searched_albums.any? %>
-
-    <% @searched_albums.each do |album|%>
-
-        <p><%= link_to album.name, artist_album_path(album, artist_id: @artist.id)  %></p>
-        <p><%= '**************************************' %></p>
-
-    <% end %>
-
-<% else %>
-
-    <p> La búsqueda no tuvo suerte. </p>
-    <p><%= link_to "Volver a" + @artist.name, artist_path(@artist.id) %></p>
-    
-<% end %>
