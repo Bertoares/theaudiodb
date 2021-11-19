@@ -5,8 +5,10 @@
     <div class="search-artist">
         <%= form_with url: artists_path, method: :get do |f| %>
 
-            <p><%= label_tag "Indica un artista:" %>
-            <%= text_field_tag 'search', nil, placeholder: 'Escribe un artista...', class: "text-field-all" %></p>
+            <div class="padrealigncenter">
+                <div><%= label_tag "Nombre completo del artista:" %></div>
+                <div><%= text_field_tag 'search', nil, placeholder: 'Buscar un artista...', class: "text-field-all" %></div>
+            </div>
 
         <!-- Aqui sirve para llevarme un dato, sin que el usuario lo sepa o lo indique -->
             <%= f.hidden_field :id %>

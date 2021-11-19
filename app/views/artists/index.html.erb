@@ -1,20 +1,27 @@
-
 <div class="padrealigncenter">
-    <h3 class="title-list"> LISTA DE ARTISTAS </h3>
 
-    <% if @searched_artists.any? %>
+    <% if @searched_artists == "" %>
+
+        <h3 class="title-list"> NO HAY RESULTADOS </h3> 
+        <p class="font-size-20"> <strong>No se indicó</strong> el nombre de un artista. </p>
+        
+        <p><%= link_to "Volver", user_path(current_user), class: "a-without-line" %></p>
+
+    <% elsif @searched_artists.any? %>
+        <h3 class="title-list"> LISTA DE ARTISTAS </h3>
 
         <% @searched_artists.each do |artist|%>
 
             <p><%= link_to artist.name, artist_path(artist), class: "a-without-line" %></p>
-            <p><%= '**************************************' %></p>
 
         <% end %>
 
     <% else %>
 
-        <p> La búsqueda no tuvo suerte o está mal escrita. </p>
-        <p><%= link_to "Volver", user_path(current_user) %></p>
+        <h3 class="title-list"> NO HAY RESULTADOS </h3>
+        <p class="font-size-20"> La búsqueda <strong>no tuvo suerte</strong> o está <strong>mal escrita</strong>. </p>
+        
+        <p><%= link_to "Volver", user_path(current_user), class: "a-without-line" %></p>
         
     <% end %>
 </div>

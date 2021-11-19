@@ -47,30 +47,42 @@
 
             <div>
                 <% if @artist.thumb? %>
-                    <%= image_tag(@artist.thumb, alt: @artist.name + " picture", size: "150x150") %>
+                    <%= image_tag(@artist.thumb, alt: @artist.name + " picture", size: "175x175", class: "sombra") %>
                 <% else %>
-                    <%= image_tag("/not_found.png", alt: @album.name + " picture", size: "150x150") %>
+                    <%= image_tag("/not_found.png", alt: @album.name + " picture", size: "175x175", class: "sombra-not-found") %>
                 <% end %>
             </div>
             
-            <div class="div-hijo">
+            <div class="div-hijo pad-left-12">
                 <% if @artist.website? %>
-                    <% url = "https://" + @artist.website %>
-                    <p> <a href= <%= url %> target="_blank"> Website </a> </p>
+                    <% if @artist.website.include? "https://" %>
+                        <p> <a href= <%= @artist.website %> target="_blank"> <%= image_tag("/website.png", alt: "Twitter del artista", size: "30x30") %> </a> </p>
+                    <% else %>
+                        <% url = "https://" + @artist.website %>
+                        <p> <a href= <%= url %> target="_blank"> <%= image_tag("/website.png", alt: "Twitter del artista", size: "30x30") %> </a> </p>
+                    <% end %>
                 <% else %>
                     <p> No tiene Website asociada. </p>  
                 <% end %>
 
                 <% if @artist.facebook? %>
-                    <% url = "https://" + @artist.facebook %>
-                    <p> <a href= <%= url %> target="_blank"> Facebook </a> </p>
+                    <% if @artist.facebook.include? "https://" %>
+                        <p> <a href= <%= @artist.facebook %> target="_blank"> <%= image_tag("/facebook.png", alt: "Twitter del artista", size: "30x30") %> </a> </p>
+                    <% else %>
+                        <% url = "https://" + @artist.facebook %>
+                        <p> <a href= <%= url %> target="_blank"> <%= image_tag("/facebook.png", alt: "Twitter del artista", size: "30x30") %> </a> </p>
+                    <% end %>
                 <% else %>
                     <p> No tiene Facebook asociado. </p>  
                 <% end %>
 
                 <% if @artist.twitter? %>
-                    <% url = "https://" + @artist.twitter %>
-                    <p> <a href= <%= url %> target="_blank"> Twitter </a> </p>
+                    <% if @artist.twitter.include? "https://" %>
+                        <p> <a href= <%= @artist.twitter %> target="_blank"> <%= image_tag("/twitter.png", alt: "Twitter del artista", size: "30x30") %> </a> </p>
+                    <% else %>
+                        <% url = "https://" + @artist.twitter %>
+                        <p> <a href= <%= url %> target="_blank"> <%= image_tag("/twitter.png", alt: "Twitter del artista", size: "30x30") %> </a> </p>
+                    <% end %>
                 <% else %>
                     <p> No tiene Twitter asociado. </p>  
                 <% end %>

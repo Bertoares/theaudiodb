@@ -41,9 +41,9 @@
 
             <div>
                 <% if @album.thumb? %>
-                    <%= image_tag(@album.thumb, alt: @album.name + " picture", size: "250x250") %>
+                    <%= image_tag(@album.thumb, alt: @album.name + " picture", size: "250x250", class: "sombra")  %>
                 <% else %>
-                    <%= image_tag("/not_found.png", alt: @album.name + " picture", size: "250x250") %>
+                    <%= image_tag("/not_found.png", alt: @album.name + " picture", size: "250x250", class: "sombra-not-found") %>
                 <% end %>
             </div>
 
@@ -52,13 +52,14 @@
         <% if @album.des_en? %>
             <p><%= @album.des_en %></p>
         <% else %>
-            <p>No hay descripción.</p>
+            <p> No hay descripción. </p>
         <% end %>
         
     </div>
 
     <div class="percentage_50 right center">
 
+        ¡Pulsa en las canciones para escucharlas en YouTube!
         <h3 class="title-list"><%= @album.name %> tracks</h3>
         <% if @searched_tracks.any? %>
 
@@ -70,7 +71,7 @@
                     <div class="percentage_100 track-beauty">  
                         <a href= <%= url %> target="_blank", class="a-without-line" > <%= track.name %> </a>
 
-                        <div id= "button-favoritable-<%= track.id.to_s %>" class="pad-left-25 ">
+                        <div id= "button-favoritable-<%= track.id.to_s %>" class="pad-left-12">
                             <%= render "favorites/buttons_favorite", object: track, user: current_user %>
                         </div>
                     </div>

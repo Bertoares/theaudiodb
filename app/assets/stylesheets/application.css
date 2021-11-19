@@ -23,9 +23,11 @@
 
 
 
-
-
 /* html */
+
+.font-size-20 {
+    font-size: 20px;
+}
 
 h1{
     text-align: center
@@ -41,6 +43,7 @@ body{
     padding-left: 15px;
     padding-right: 15px;
     padding-bottom: 50px;
+    margin: 0;
 } 
 
 html{
@@ -58,7 +61,16 @@ html{
 .button-all:hover{
     background-color: pink;
     color: purple;
+
 }
+
+.button-all:focus{
+    background-color: red;
+    color: #fff;
+}
+
+
+
 
 .text-field-all{
   width: 250px;
@@ -69,11 +81,6 @@ html{
 .text-field-all:hover{
     border: 2px solid purple;
 }
-
-.checkbox-all{
-    background-color: red;
-}
-
 
 
 
@@ -150,8 +157,12 @@ html{
 }
 
 .a-without-line:hover{
-    color: purple;
     font-weight: bold;
+    color: purple;
+}
+
+.a-without-line:focus{
+    color: red;
 }
 
 .a-without-line-button{
@@ -163,6 +174,10 @@ html{
     color: black;
 }
 
+.a-without-line-button:focus{
+    background-color: red;
+    color: #fff;
+}
 
 
 
@@ -179,6 +194,17 @@ html{
     font-size: 25px;
 }
 
+/* show artist/album */
+
+.sombra{
+    border-radius: 8px;
+    box-shadow: 0px 0px 8px 10px rgba(125, 0, 156, 0.25);
+}
+
+.sombra-not-found{
+    border-radius: 8px;
+    box-shadow: 0px 0px 8px 10px rgba(0, 0, 0, 0.25);
+}
 
 
 
@@ -212,6 +238,8 @@ html{
 .navegator{
     width: auto;
     text-align: center;
+    padding-bottom: 50px;
+    margin-top: -25px;
 }
 
 .title-img{
@@ -220,9 +248,13 @@ html{
 }
 
 .title{
+    color: white;
     font-family: monospace;
-    font-size: 35px;
-    text-shadow: 2px 2px 2px violet;
+    font-size: 40px;
+    font-weight: bold;
+    text-shadow: 0px 0px 15px rgb(65, 0, 65);
+    -webkit-text-stroke: 2px rgb(177, 0, 177); 
+
 }
 
 .links-nav{
@@ -243,14 +275,23 @@ html{
     text-align: center;
 }
 
+.drop { 
+    filter: drop-shadow(0px 0px 20px rgba(65, 0, 65, 0.5)); 
+}
+
+
+
 .pad-25{
     padding-left: 25px;
     padding-right: 25px;
 }
 
-.pad-left-25{
-    padding-left: 25px;
+.pad-left-12{
+    padding-left: 12px;
 }
+
+
+
 
 .title-list{
     font-size: 25px;
@@ -261,5 +302,3 @@ html{
     justify-content: center;
     text-align: center;
 }
-
-
