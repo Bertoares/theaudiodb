@@ -5,14 +5,14 @@
         <div class="title-img">
 
           <p class="title">THEAUDIODB</p>
-          <img src="/logo_3d.png">
+          <img src="/logo_3d.png" class="drop">
 
         </div>
         
         <div class="links-nav">
 
-          <div class="left">Sesión iniciada: <%=link_to current_user.name.to_s, user_path(current_user), class:"a-without-line"%></div>
-          <%=link_to "Cerrar sesión", destroy_user_session_path, method: "DELETE", class:"a-without-line right"%>
+          <div class="left"> <%= image_tag("/perfil.png", alt: "Twitter del artista", size: "30x30") %>  <%=link_to current_user.name.to_s, user_path(current_user), class:"a-without-line"%></div>
+          <div class="right"> <%= image_tag("/cerrar-sesion.png", alt: "Twitter del artista", size: "30x30") %> <%=link_to "Cerrar sesión", destroy_user_session_path, method: "DELETE", class:"a-without-line right"%></div>
 
         </div>
         

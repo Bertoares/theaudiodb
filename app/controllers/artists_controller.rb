@@ -9,12 +9,13 @@ class ArtistsController < ApplicationController
        # @searched_artist_bd = ::Artists::Search.new(name: name_artist).execute
        # results_api = ::Artists::SearchApi.new(name: name_artist).execute
 
-        @searched_artists = ::Artists::SearchUseCase.new(name: name_artist).execute
+        if name_artist == ""
+            @searched_artists = ""
+        else
+            @searched_artists = ::Artists::SearchUseCase.new(name: name_artist).execute
+        end
   
 
-        # hacer servicio de busqueda de artist a la api
-        #coger el resultado
-        #nostrarlo en la vista de search_Artist
     end
     
     # muestra el detalle del objeto, en este caso artista

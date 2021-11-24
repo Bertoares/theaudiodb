@@ -2,7 +2,7 @@
 
     <div class="form-new">
 
-        <h2>Iniciar sesión</h2>
+        <h2 class="title-list">Iniciar sesión</h2>
 
         <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
 
@@ -18,7 +18,7 @@
 
           <% if devise_mapping.rememberable? %>
             <div class="field">
-              <%= f.check_box :remember_me, class: "checkbox-all" %>
+              <%= f.check_box :remember_me %>
               <%= f.label :remember_me %>
             </div>
           <% end %>
@@ -28,7 +28,7 @@
           </div>
 
         <% end %>
-        
+<br>
         <%= render "devise/shared/links" %>
 
   </div>

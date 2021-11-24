@@ -12,6 +12,8 @@ class AlbumsController < ApplicationController
     def show
         @album = Album.find(params[:id])
         @artist = Artist.find(params[:artist_id])
+
+        @searched_tracks = ::Tracks::SearchUseCase.new(album: @album).execute
     end
 
 end
