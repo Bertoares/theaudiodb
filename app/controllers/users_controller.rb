@@ -1,5 +1,7 @@
 class UsersController < ApplicationController
 
+    # muestra el detalle del objeto
+    # si no encuentra un id de usuario, mantiene el ultimo que tenía
     def show
 
         begin 
@@ -8,7 +10,7 @@ class UsersController < ApplicationController
             @user = current_user
         end
 
-    # llamamos al servicio que estar en la carpeta User, y le pasamos una variable con el valor de @user
+        # servicios para recoger y mostrar los favoritos del usuario
         @favorite_artists = ::Users::GetFavoriteArtists.new(user: @user).execute
         @favorite_albums = ::Users::GetFavoriteAlbums.new(user: @user).execute
         @favorite_tracks = ::Users::GetFavoriteTracks.new(user: @user).execute

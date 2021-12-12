@@ -1,5 +1,7 @@
 class TracksController < ApplicationController
 
+   # lista de objetos
+   # busca ael album, el artista y llama al caso de uso
    def index
 
       @artist = Artist.find(params[:artist_id])

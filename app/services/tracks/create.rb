@@ -1,6 +1,7 @@
 module Tracks
     class Create
 
+        # constructor
         def initialize(results_api:, album_id:)
 
             @results = results_api
@@ -9,6 +10,7 @@ module Tracks
 
         def execute
 
+            # bucle para recoger el valor segun la clave
             @results['track'].each do |key, value|
                 
                 api_id = key['idTrack']
@@ -17,10 +19,10 @@ module Tracks
                 duration = key['intDuration']
 
 
+                # creamos el objeto Track y lo guardamos
                 @track = Track.new(api_id: api_id, album_id: @album_id, name: name, genre: genre, duration: duration)
 
                 @track.save
-                # byebug
                 
             end
 

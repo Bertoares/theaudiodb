@@ -1,6 +1,7 @@
 module Artists
     class Create
 
+        # constructor
         def initialize(results_api)
 
             @results = results_api
@@ -8,6 +9,7 @@ module Artists
 
         def execute
 
+            # bucle para recoger el valor segun la clave
             @results.each do |key, value|
                 
                 api_id = value['artists'][0]['idArtist']
@@ -22,14 +24,11 @@ module Artists
                 bio_esp = value['artists'][0]['strBiographyES']
                 thumb = value['artists'][0]['strArtistThumb']
 
-
+                # creamos el objeto Artist, lo guardamos y lo devolvemos
                 @artist = Artist.new(api_id: api_id, name: name, year: year, style: style, website: website, 
                     facebook: facebook, twitter: twitter, country: country, bio_en: bio_en, bio_esp: bio_esp, thumb: thumb)
 
             end
-
-            # @artist = Artist.new(api_id: api_id, name: name, year: year, genre: genre, website: website, 
-            #     facebook: facebook, twitter: twitter, country: country, bio_en: bio_en, bio_esp: bio_esp, thumb: thumb)
 
             @artist.save!
 

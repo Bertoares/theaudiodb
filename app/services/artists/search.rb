@@ -1,6 +1,7 @@
 module Artists
     class Search 
 
+        # constructor
         def initialize(name: nil)
 
             @name = name
@@ -8,10 +9,9 @@ module Artists
 
         def execute
 
+            # busca en todos los registros de Artist, uno que tenga el @name
             artists = Artist.all
 
-                # solo hace esto si @name no es nil
-        # muestra todos los resultados de:  Bon -> Bon Jobi
             artists = artists.where('name like ?', "%#{@name}%") if @name
 
             artists
