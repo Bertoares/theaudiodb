@@ -1,13 +1,10 @@
 class ArtistsController < ApplicationController
 
-    # MÉTODOS CRUD ENTERO    index, show
+    # lista de objetos
+    # recoge el texto del input, si es vacio lo devuelve así, y si no llama al caso de uso
     def index
-        # @user_id = params[:user][:id]
-                    # params: hash que siempre llega al controlador
+        
         name_artist = params[:search]
-
-       # @searched_artist_bd = ::Artists::Search.new(name: name_artist).execute
-       # results_api = ::Artists::SearchApi.new(name: name_artist).execute
 
         if name_artist == ""
             @searched_artists = ""
@@ -18,7 +15,8 @@ class ArtistsController < ApplicationController
 
     end
     
-    # muestra el detalle del objeto, en este caso artista
+    # muestra el detalle del objeto
+    # busca el artista y llama al caso de uso
     def show
         @artist = Artist.find(params[:id])
         

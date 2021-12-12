@@ -1,5 +1,6 @@
 class ApplicationController < ActionController::Base
 
+    # antes de hacer cualquier cosa, es necesario autenticar el usuario
     before_action :authenticate_user!
     
     def after_sign_in_path_for(resource)
