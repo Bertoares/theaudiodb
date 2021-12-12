@@ -1,8 +1,9 @@
 class FavoritesController < ApplicationController
 
-    # Controla los datos del modelop
+    # Controla los datos del modelo
 
-    # Esto sirve para guardar un nuevo favorito
+    # guarda un nuevo favorito
+    # recoge los parámetros que necesita, llama al caso de uso y llama a un js para que ejecute un partial
     def create
 
         @object_id = params[:object_id]
@@ -20,7 +21,8 @@ class FavoritesController < ApplicationController
     end
 
 
-
+    # borra un favorito
+    # recoge los parámetros que necesita, llama al caso de uso y llama a un js para que ejecute un partial
     def destroy
 
         @object_id = params[:object_id]
